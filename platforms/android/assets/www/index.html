@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <script type="text/javascript" src="lib/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="lib/ratchet/css/ratchet.min.css">
+        <script type="text/javascript" src="lib/ratchet/js/ratchet.min.js"></script>
+        <script type="text/javascript" src="lib/vue.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Tiempos de juego</title>
+    </head>
+    <body>
+        <header class="bar bar-nav header-bar">
+            <button class="btn btn-link btn-nav pull-right">
+                <span class="icon icon-check"></span>
+            </button>
+            <h1 class="title">Agregar jugadores</h1>
+        </header>
+         
+        <div class="content">
+
+            <div id="app-player-list">
+                <ul class="table-view players_list">
+                    <li class="table-view-cell player_item" v-for="player in team">
+                        {{ player.data }}
+                    </li>
+                </ul>
+            </div>
+
+            <a class="btn btn-primary btn-block btn-outlined" href="two.html" data-transition="slide-in" id="button__go_to_match">
+                Load new page with push
+            </a>
+
+            <div id="floating-button__add_player" class="floating-button">
+                <a href="#modal__new_player">
+                    <p class="plus">+</p>
+                </a>
+            </div>
+
+            <div id="modal__new_player" class="modal">
+                <header class="bar bar-nav">
+                    <a class="icon icon-close pull-right" href="#modal__new_player" id="close_modal_new_player"></a>
+                    <h1 class="title">Nuevo jugador</h1>
+                </header>
+
+                <div class="content">
+                    <form class="input-group" id="form__new-player">
+                        <div class="input-row">
+                            <label>Jugador/a:</label>
+                            <input type="text" placeholder="Mr Morales" id="input__player-name">
+                        </div>
+                        <div class="input-row">
+                            <label>Camiseta</label>
+                            <input type="number" placeholder="10" id="input__player-number">
+                        </div>
+                    </form>
+
+
+                    <button class="btn btn-primary btn-block btn-outlined" id="button__add_new_player">
+                        Agregar <span class="icon icon-person"></span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="src/game-mgr.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/events.js"></script>
+    </body>
+</html>

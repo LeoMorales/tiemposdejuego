@@ -1,0 +1,58 @@
+<!-- 
+
+@Author: Syed Fazle Rahman (@fazlerocks - Twitter)
+@Created_on: Fri, 9 May 2014
+
+ -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Juego</title>
+
+  </head>
+  <body>
+
+	<header class="bar bar-nav">
+		<h1 class="title">Partido</h1>
+	</header>
+
+	<div class="content" id="page__match">
+      
+      <div class="match">
+        
+          <div id="substitutes-players-list">
+              <h2>Cambios</h2>
+              <ul class="table-view players_list">
+                  <li class="table-view-cell player_item player_item_in_bank" v-for="player in team">
+                      <div class="subsitute-player">
+                          <h5 class="substitute-player-number">{{ player.get_number() }}</h5>
+                          <h3>{{ player.get_name() }}</h3>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+
+          <div id="field-players-list">
+              <h2>En cancha</h2>
+              <ul class="table-view players_list">
+                  <li class="table-view-cell player_item" v-for="player in field">
+                      <div class="player-representation">
+                          <h5>{{ player.get_name() }}</h5>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+
+          <div class="enter-substitute">
+              <button class="btn btn-link btn-nav pull-right">
+                  Right
+                  <span class="icon icon-right-nav"></span>
+              </button>
+          </div>
+      </div>
+	</div>
+    
+  </body>
+</html>
