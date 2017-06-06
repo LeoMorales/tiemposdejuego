@@ -4,8 +4,7 @@
 
 Aplicación móvil desarrollada utilizando tecnologías web con la ayuda de cordova.
 
-La idea es tener un listado de jugadores/as que ingresen y salgan del campo de juego y cuando lo deseo,
-consultar cuanto tiempo permaneció en el campo de juego cada jugador.
+La idea es tener un listado de jugadores/as (11 en cancha y los relevos) que ingresen y salgan del campo de juego y que, cuando se desee, se pueda consultar el tiempo que permaneció en el campo de juego cada jugador.
 
 
 ### Tecnologias:
